@@ -1,164 +1,199 @@
-Django_FullStack_FinalProject
-A FullStack Ecommerce App built with Django and React
-
-Table of Contents
-
-About this App
-
-App Overview
-
-Products List Page
-
-Product Details Page
-
-Product Edit Page
-
-Add Product Page
-
-Checkout Page
-
-Payment Confirmation Page
-
-Payment Successful Page
-
-Orders Page for User
-
-Orders Page for Admin
-
-Address Settings Page
-
-Address Create Page
-
-Address Edit Page
-
-Card Settings Page
-
-Card Update Page
-
-Login Page
-
-Register Page
-
-User Account Page
-
-Update User Account Page
-
-Delete User Account Page
-
-Other Functionalities
-
-Installation
-
-Backend Setup
-
-Frontend Setup
-
-About this App
-
-An ecommerce app where users can purchase products using Stripe for payment.
-Users can browse products freely but must create an account to proceed with purchases.
-Users can delete their account anytime. On deletion, all related data (account, address, and card details) are permanently removed.
-
-The app allows creating new Stripe cards, paying with existing ones, and deleting them.
-If a Stripe card is deleted, the corresponding user account is also deleted.
-
-App Overview
-
-Products List Page
-Displays all available products on the website.
-
-Product Details Page
-Shows detailed information about the selected product — name, description, stock status, and payment options.
-Admins can edit or delete products from this page.
-
-Product Edit Page
-Accessible only to admins. Allows editing product details such as image, name, description, price, and stock status.
-
-Add Product Page
-Admins can create new products by providing required details like name, image, description, price, and stock status.
-
-Checkout Page
-Displays product information, allows payment via Stripe, and lets users select or edit their address.
-Users can save their card for future use.
-
-Payment Confirmation Page
-Shows total amount, selected address, and card used for the purchase.
-Users can switch cards or addresses if needed.
-
-Payment Successful Page
-Displays purchase confirmation details, including the product bought and total paid amount.
-Provides a link to the orders page.
-
-Orders Page for User
-Lists all user orders, including details like name, card used, date, and delivery address.
-
-Orders Page for Admin
-Displays all users’ orders.
-Admins can change product delivery statuses and use the search bar to find orders by customer name, address, or product name.
-
-Address Settings Page
-Users can view, create, edit, or delete addresses.
-
-Address Create Page
-Allows users to add a new address.
-
-Address Edit Page
-Allows users to edit existing addresses.
-
-Card Settings Page
-Displays user’s card details with options to update or delete them.
-
-Card Update Page
-Allows users to update their saved card details.
-
-Login Page
-Requires registered account credentials.
-
-Register Page
-Enables new users to sign up.
-
-User Account Page
-Displays user details like name, email, and admin privileges.
-
-Update User Account Page
-Allows users to update their username, email, and reset password.
-
-Delete User Account Page
-Enables account deletion with password confirmation.
-
-Other Functionalities
-
-JSON Web Tokens (JWT) are used for authentication checks.
-
-Strong security implemented during card creation and payment.
-
-Each request is verified using JSON tokens, except for product list and details pages.
-
-Installation
-
-After downloading or cloning the repository, follow the steps below.
-
-Note: You must provide your own Stripe secret and publishable API keys in Django settings to run the project.
-
-Backend Setup
-
-(For Linux and Windows)
-
-Move into the backend folder through terminal and run the following commands:
-
-python3 -m venv env        # Windows: python -m venv env
-source env/bin/activate    # Windows: env\scripts\activate
-pip install -r requirements.txt
-python manage.py runserver
-
-Frontend Setup
-
-(For Linux and Windows)
-
-Move into the frontend folder and run the following commands:
-
-npm i
-npm start
-
-
-All set! Happy Coding :)
+# FullStack_Ecommerce_App
+A FullStack Ecommerce App built with Django and React. 
+<p id ="top" align="center">
+  <img src="https://github.com/YashMarmat/Pages-App-django/blob/master/templates/ecommerce%20%20products%20list%20page.png?raw=true" width="100%">
+</p>
+
+Checkout the site in action here <a href="https://condescending-goldstine-79a4ed.netlify.app/">Deployed App</a> (short note below)
+
+(Note: The website can take upto 30 seconds (hosted on Heroku free tier services), as the project has no clients, its just for learning, please refer the source
+code to run locally).
+
+# Table of contents
+- [About_this_App](#About_this_App)
+- [App_Overview](#App_Overview)
+  * [Products_List_Page](#Products_List_Page)
+  * [Product_Details_Page](#Product_Details_Page)
+  * [Product_Edit_Page](#Product_Edit_Page)
+  * [Add_Product_Page](#Add_Product_Page)
+  * [Checkout_Page](#Checkout_Page)
+  * [Payment_Confirmation_Page](#Payment_Confirmation_Page)
+  * [Payment_successfull_Page](#Payment_successfull_Page)
+  * [Orders_Page_For_User](#Orders_Page_For_User)
+  * [Orders_Page_For_Admin](#Orders_Page_For_Admin)
+  * [Address_Settings_Page](#Address_Settings_Page)
+  * [Address_Create_Page](#Address_Create_Page)
+  * [Address_Edit_Page](#Address_Edit_Page)
+  * [Card_Settings_Page](#Card_Settings_Page)
+  * [Card_Update_Page](#Card_Update_Page)
+  * [Login_Page](#Login_Page)
+  * [Register_Page](#Register_Page)
+  * [User_Account_Page](#User_Account_Page)
+  * [Update_User_Account_Page](#Update_User_Account_Page)
+  * [Delete_User_Account_Page](#Delete_User_Account_Page)
+  * [Other_Functionalities](#Other_Functionalities)
+- [Installation](#Installation)
+  * [Backend](#backend)
+  * [Frontend](#frontend)
+
+## About_this_App
+An Ecommerce app where users can purchase products by using their stripe card.  Users are allowed to visit our website and free to look any product details. User needs to create an account on our website to proceed with the payment section. If a user want they can also delete their account anytime (NOTE: With the deletion of a user account all their info like Account details, Address details, Card details will be deleted as well)
+
+The website also provides the flexibility to create a new stripe card if they do not have one, the user can also pay with other user stripe card (if they provide the right email address linked with the card and other card details like Card Number, Exp Month, Exp Year and CVC). The user can also detete their stripe card if they like (Caution: With the deletion of their stripe card their account related to that card will also be deleted as well). 
+
+## App_Overview
+### Products_List_Page
+This page displays all the available products on the website.
+<p align="center">
+  <img src="https://github.com/YashMarmat/Pages-App-django/blob/master/templates/ecommerce%20%20products%20list%20page.png?raw=true" width="100%">
+</p>
+
+### Product_Details_Page
+This page displays the details of the Product which user has selected from the products list page. Here, the user can see all the info of the Product such as product name, description, in stock or out of stock and pay with stripe button. For Admins, the website provides two more functionalities such as Updating the product and secondly deleting the product.
+<p align="center">
+  <img src="https://github.com/YashMarmat/Pages-App-django/blob/master/templates/ecommerce%20%20product%20details%20page.png?raw=true" width="100%">
+</p>
+
+### Product_Edit_Page
+Only admins can visit this page, the page handles the editing of the Product in terms of image, name , description, price and in stock status. 
+<p align="center">
+  <img src="https://github.com/YashMarmat/Pages-App-django/blob/master/templates/ecommerce%20%20product%20edit%20page.png?raw=true" width="100%">
+</p>
+
+### Add_Product_Page
+Only admins can visit this page, the pages handles the creation of product (requires product name,  image, description, price and in stock status.
+<p align="center">
+  <img src="https://github.com/YashMarmat/Pages-App-django/blob/master/templates/ecommerce%20%20add%20product%20page.png?raw=true" width="100%">
+</p>
+
+### Checkout_Page
+This page displays the info of the product which user has selected for the purchase. The page Contains the product information and provides pay with stripe card
+option. The user can also save their card for future payments. The user can also select or edit their address from the page.
+
+<p align="center">
+  <img src="https://github.com/YashMarmat/Pages-App-django/blob/master/templates/ecommerce%20%20checkout%20page.png?raw=true" width="100%">
+</p>
+
+### Payment_Confirmation_Page
+The page displays total amount info, the address selected by the user for delivery and the card number used for the purchase. The user can also select a different card and
+address from the same page if something wents wrong.
+
+<p align="center">
+  <img src="https://github.com/YashMarmat/Pages-App-django/blob/master/templates/ecommerce%20%20payment%20confirmation%20page.png?raw=true" width="100%">
+</p>
+
+### Payment_Successfull_Page
+The Page displays the confirmation of the product purchase. Also, provides info like which product is bought and how much amount was paid for it. Go to orders page is
+also provided to see the order details.
+
+<p align="center">
+  <img src="https://github.com/YashMarmat/Pages-App-django/blob/master/templates/ecommerce%20%20payment%20successfull%20page.png?raw=true" width="100%">
+</p>
+
+### Orders_Page_For_User
+The page displays the list of all the orders made by user, with the details like their name, card number used, date of purchase, address etc.
+
+<p align="center">
+  <img src="https://github.com/YashMarmat/Pages-App-django/blob/master/templates/ecommerce%20%20orders%20page%20for%20normal%20user.png?raw=true" width="100%">
+</p>
+
+### Orders_Page_For_Admin
+For admin user the page display the list of all users order information. The admin can change the status of product delivery status as well. A search bar is also
+provided to locate the orders with more flexibility (can search the orders by customer name, address and product name)
+
+<p align="center">
+  <img src="https://github.com/YashMarmat/Pages-App-django/blob/master/templates/ecommerce%20%20orders%20page%20for%20admin.png?raw=true" width="100%">
+</p>
+
+### Address_Settings_Page
+Here, the user can view their addresses, the page also provides creation of new address and can edit or delete it as well.
+<p align="center">
+  <img src="https://github.com/YashMarmat/Pages-App-django/blob/master/templates/ecommerce%20%20address%20settings%20page.png?raw=true" width="100%">
+</p>
+
+### Address_Create_Page
+Here, the user can create their new address.
+<p align="center">
+  <img src="https://github.com/YashMarmat/Pages-App-django/blob/master/templates/ecommerce%20%20address%20create%20page.png?raw=true" width="50%">
+</p>
+
+### Address_Edit_Page
+Here, the user can edit their address.
+<p align="center">
+  <img src="https://github.com/YashMarmat/Pages-App-django/blob/master/templates/ecommerce%20%20address%20update%20page.png?raw=true" width="50%">
+</p>
+
+### Card_Settings_Page
+Here, the user can view all their card details. The Page also provides updation and deletion of Card.
+<p align="center">
+  <img src="https://github.com/YashMarmat/Pages-App-django/blob/master/templates/ecommerce%20%20card%20settings%20page.png?raw=true" width="100%">
+</p>
+
+
+### Card_Update_Page
+Here, the user can update their card.
+<p align="center">
+  <img src="https://github.com/YashMarmat/Pages-App-django/blob/master/templates/ecommerce%20%20card%20update%20page.png?raw=true" width="50%">
+</p>
+
+### Login_Page
+Requires an Account on the Website
+<p align="center">
+  <img src="https://github.com/YashMarmat/Pages-App-django/blob/master/templates/ecommerce%20%20sign%20in%20page.png?raw=true" width="100%">
+</p>
+
+### Register_Page
+<p align="center">
+  <img src="https://github.com/YashMarmat/Pages-App-django/blob/master/templates/ecommerce%20%20sign%20up%20page.png?raw=true" width="100%">
+</p>
+
+### User_Account_Page
+Here, the user can see their details like their Name, Email and Admin Priviledges.
+<p align="center">
+  <img src="https://github.com/YashMarmat/Pages-App-django/blob/master/templates/ecommerce%20%20user%20account%20page.png?raw=true" width="100%">
+</p>
+
+### Update_User_Account_Page
+Here, the user can update their account details like username, email and can also reset their password.
+<p align="center">
+  <img src="https://github.com/YashMarmat/Pages-App-django/blob/master/templates/ecommerce%20account%20update%20page.png?raw=true" width="100%">
+</p>
+
+### Delete_User_Account_Page
+Here, the user can Delete their account (requires password confirmation)
+<p align="center">
+  <img src="https://github.com/YashMarmat/Pages-App-django/blob/master/templates/ecommerce%20%20delete%20account%20page.png?raw=true" width="100%">
+</p>
+
+### Other_Functionalities
+- Used JSON web tokens to achieve the authentication checks in the website.
+- Strict Security Checking behind the scenes during the Card Creation and Payment Process.
+- JSON Token gets checked for every single request made on the website (except products list and product details page)
+
+## Installation
+after downloading/cloning the repository code follow below steps:
+* (NOTE: your need to mention your own stripe secret api key and publishable key in django to run the project)
+
+### Backend
+* (for both linux and windows)
+1) Move in backend folder through terminal and run following commands,
+
+`python3 -m venv env` (for windows --> `python -m venv env`) 
+
+`source env/bin/activate` (for windows --> `env\scripts\activate`)
+
+`pip install -r requirements.txt` (same for both)
+
+`python manage.py runserver` (same for both)
+
+### Frontend
+* (for both linux and windows)
+2) Move in frontend folder through terminal and run follwing commands
+
+`npm i`
+
+`npm start`
+
+## All set ! Happy coding :)
+
+<p><a href="#top">Back to Top</a></p>
